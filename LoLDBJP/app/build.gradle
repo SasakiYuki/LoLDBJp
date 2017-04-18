@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+def AAVersion = '4.1.0'
 
 android {
     compileSdkVersion 25
@@ -12,12 +13,31 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+    dataBinding {
+        enabled = true
+    }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    productFlavors{
+        jp {
+            buildConfigField 'String', 'API_HOST', '"jp1.api.riotgames.com/lol/"'
+            buildConfigField 'String', 'CLIENT_ID', '"1af7585a27a38afea0c4df1337a00363d89ebb002ec8ff9524db5bd2c3ad9515"'
+            buildConfigField 'String', 'CLIENT_SECRET', '"e517723b99b1f92694ea49e994cd653cb830a66b08853042e47787d15ace16aa"'
+            buildConfigField 'String', 'REDIRECT_URL', '"afa://yukiyamada.jp"'
+            buildConfigField 'String', 'API_KEY', '"7f8eaf37-de30-407b-b9cf-01c5db3b7dd5"'
+        }
+    }
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+}
+kapt {
+    generateStubs = true
 }
 
 dependencies {
@@ -28,7 +48,9 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.1.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-beta5'
     testCompile 'junit:junit:4.12'
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    def supportLibraryVersion = '24.1.1'
+    compile "com.android.support:design:$supportLibraryVersion"
 
     compile 'com.squareup.okhttp3:logging-interceptor:3.2.0'
     compile 'io.reactivex:rxandroid:1.1.0'
@@ -36,6 +58,9 @@ dependencies {
     compile 'com.squareup.retrofit2:retrofit:2.0.2'
     compile 'com.squareup.retrofit2:converter-gson:2.0.2'
     compile 'com.squareup.retrofit2:adapter-rxjava:2.0.0'
+
+    kapt 'com.android.databinding:compiler:2.2.2'
+    compile 'com.squareup.picasso:picasso:2.3.3'
 }
 repositories {
     mavenCentral()

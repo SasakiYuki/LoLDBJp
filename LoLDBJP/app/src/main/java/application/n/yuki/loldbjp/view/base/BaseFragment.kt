@@ -40,6 +40,10 @@ abstract class BaseFragment : Fragment() {
         return ""
     }
 
+    fun setNavigationTitle(title:String) {
+        (context as BaseActivity).setNavigationTitle(title)
+    }
+
     protected fun replaceFragment(fragment: BaseFragment, animated: Boolean) {
         val activity = activity
         if (activity is FragmentReplacer) {

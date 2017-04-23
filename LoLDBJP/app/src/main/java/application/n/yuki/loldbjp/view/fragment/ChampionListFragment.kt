@@ -14,6 +14,7 @@ import application.n.yuki.loldbjp.Views
 import application.n.yuki.loldbjp.contract.StaticChampionContract
 import application.n.yuki.loldbjp.rest.entity.StaticChampionEntity
 import application.n.yuki.loldbjp.rest.entity.StaticChampionsData
+import application.n.yuki.loldbjp.type.ChampionType
 import application.n.yuki.loldbjp.view.ThumbnailEntity
 import application.n.yuki.loldbjp.view.ThumbnailListAdapter
 import application.n.yuki.loldbjp.view.activity.SearchActivity
@@ -114,11 +115,38 @@ class ChampionListFragment : BaseFragment(), StaticChampionContract.StaticChampi
                     arguments.putString(ARG_SEARCH_KEY, data.getStringExtra(ARG_SEARCH_KEY))
                     arguments.putString(ARG_SEARCH_PARTYPE, data.getStringExtra(ARG_SEARCH_PARTYPE))
                     arguments.putString(ARG_SEARCH_NAME, data.getStringExtra(ARG_SEARCH_NAME))
+                    arguments.putString(ARG_CONTENTS_NAME, setNavigationTitleForSearchResult())
                     setListFromActivity()
                 }
             }
         }
         super.onActivityResult(requestCode, resultCode, data)
+    }
+
+    private fun setNavigationTitleForSearchResult(): String {
+        val builder = StringBuilder()
+        if (isSearchedKey()) {
+            val array = ChampionType.values()
+            array
+                    .filter { it.string == getSearchedKey() }
+                    .forEach { builder.append(it.japaneseName) }
+        }
+
+        if (isSearchedPartype()) {
+            if (String((builder)).isNotEmpty()) {
+                builder.append("+")
+            }
+            builder.append(getSearchedPartype())
+        }
+
+        if (isSearchedName()) {
+            if (String(builder).isNotEmpty()) {
+                builder.append("+")
+            }
+            builder.append(isSearchedName())
+        }
+        val text = String(builder)
+        return if (TextUtils.isEmpty(text)) context.getString(R.string.fragment_champion_list_title) else (context.getString(R.string.fragment_search_result) + text)
     }
 
     private fun isSearchedKey() = !TextUtils.isEmpty(getSearchedKey()) && !getSearchedKey().equals("all")
@@ -149,13 +177,13 @@ class ChampionListFragment : BaseFragment(), StaticChampionContract.StaticChampi
     }
 
     companion object {
-        fun newInstance(key: String = "", partype: String = "", name: String = ""): ChampionListFragment {
+        fun newInstance(key: String = "", partype: String = "", name: String = "", context: Context): ChampionListFragment {
             val fragment = ChampionListFragment()
             val bundle = Bundle()
             bundle.putString(ARG_SEARCH_KEY, key)
             bundle.putString(ARG_SEARCH_PARTYPE, partype)
             bundle.putString(ARG_SEARCH_NAME, name)
-            bundle.putInt(ARG_CONTENTS_NAME_ID, R.string.fragment_champion_list_title)
+            bundle.putString(ARG_CONTENTS_NAME, context.getString(R.string.fragment_champion_list_title))
             fragment.arguments = bundle
             return fragment
         }

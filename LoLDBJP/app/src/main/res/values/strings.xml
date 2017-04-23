@@ -16,4 +16,5 @@
     <string name="fragment_search_partype">エナジータイプから探す</string>
     <string name="fragment_search_name">名前から探す</string>
     <string name="fragment_search_button">検索</string>
+    <string name="fragment_search_result" formatted="false">検索条件:</string>
 </resources>

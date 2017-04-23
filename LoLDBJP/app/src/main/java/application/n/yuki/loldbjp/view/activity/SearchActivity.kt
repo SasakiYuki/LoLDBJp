@@ -11,7 +11,6 @@ import java.util.*
 
 class SearchActivity : BaseActivity() {
     private val staticChampionList: ArrayList<StaticChampionEntity> = ArrayList()
-    private val selectedList: ArrayList<StaticChampionEntity> = ArrayList()
 
     override fun getContentLayoutResId(): Int {
         return R.layout.activity_base
@@ -19,7 +18,7 @@ class SearchActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setInitialFragment(ChampionListFragment.newInstance())
+        setInitialFragment(ChampionListFragment.newInstance(context = this))
     }
 
     fun setChampionList(list: ArrayList<StaticChampionEntity>) {

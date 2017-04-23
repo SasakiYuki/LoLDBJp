@@ -55,6 +55,7 @@
             android:layout_height="wrap_content"
             app:layout_anchor="@id/content_layout"
             app:layout_anchorGravity="bottom"
+            app:layout_scrollFlags="scroll|enterAlways"
             />
 
     </android.support.design.widget.CoordinatorLayout>

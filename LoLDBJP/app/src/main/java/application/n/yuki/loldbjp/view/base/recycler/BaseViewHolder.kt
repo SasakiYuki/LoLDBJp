@@ -1,4 +1,4 @@
-package application.n.yuki.loldbjp.view.BaseRecyclerAdapter
+package application.n.yuki.loldbjp.view.base.recycler
 
 import android.support.v7.widget.RecyclerView
 import android.view.View

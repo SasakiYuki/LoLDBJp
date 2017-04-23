@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--com-->
+    <dimen name="space_large">24dp</dimen>
+    <dimen name="space_large_half">12dp</dimen>
+    <dimen name="space_medium">16dp</dimen>
+    <dimen name="space_medium_half">8dp</dimen>
+    <dimen name="space_small">8dp</dimen>
+    <dimen name="space_small_half">4dp</dimen>
+</resources>

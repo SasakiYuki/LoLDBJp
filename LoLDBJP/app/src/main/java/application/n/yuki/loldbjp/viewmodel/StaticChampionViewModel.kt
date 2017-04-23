@@ -29,6 +29,18 @@ class StaticChampionViewModel(context:Context) : StaticChampionContract{
                     view.onError(it)
                 })
     }
+    override fun getChampions() {
+        service.getChampions(buildQueryImageInfoPartypeTags())
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
+                    view.onSuccessChampions(it)
+                },{
+                    view.onError(it)
+                })
+    }
+
 
     private fun buildQuery() = StaticChampionBuildQuery(StaticChampionBuildQuery.ChampDataBuilder(true)).toQueryMap()
+    private fun buildQueryImageInfoPartypeTags() = StaticChampionBuildQuery(StaticChampionBuildQuery.ChampDataBuilder(true,true,true,true)).toQueryMap()
 }

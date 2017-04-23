@@ -1,9 +1,9 @@
-package application.n.yuki.loldbjp.view.BaseRecyclerAdapter
+package application.n.yuki.loldbjp.view.base.recycler
 
 import android.support.annotation.IntDef
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
-import application.n.yuki.loldbjp.view.BaseRecyclerAdapter.BaseViewHolder
+import application.n.yuki.loldbjp.view.base.recycler.BaseViewHolder
 import java.util.*
 
 abstract class BaseRecyclerAdapter<T : BaseViewHolder> : RecyclerView.Adapter<T>() {

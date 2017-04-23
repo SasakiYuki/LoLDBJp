@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SectionHeaderView">
+        <attr name="sectionIcon" format="reference"/>
+        <attr name="sectionTitle" format="string"/>
+        <attr name="sectionRequired" format="boolean"/>
+        <attr name="sectionRecommended" format="boolean"/>
+        <attr name="sectionNew" format="boolean"/>
+        <attr name="sectionSelectable" format="boolean"/>
+        <attr name="sectionOptional" format="boolean"/>
+    </declare-styleable>
+
+</resources>

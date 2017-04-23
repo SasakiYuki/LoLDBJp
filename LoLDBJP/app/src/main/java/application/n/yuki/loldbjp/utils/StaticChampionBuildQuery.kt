@@ -18,9 +18,12 @@ class StaticChampionBuildQuery (val champData:String? = null) {
         }
     }
     companion object {
-        fun ChampDataBuilder(image:Boolean = false):String? {
+        fun ChampDataBuilder(image:Boolean = false,info:Boolean = false,partype:Boolean = false,tags:Boolean = false):String? {
             val builder = StringBuilder()
-            if(image) builder.append("image")
+            if(image) builder.append("image,")
+            if(info) builder.append("info,")
+            if(partype) builder.append("partype,")
+            if(tags) builder.append("tags,")
             return String(builder)
         }
     }

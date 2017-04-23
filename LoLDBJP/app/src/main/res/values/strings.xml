@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">LoLDB.JP</string>
+
+    <string name="fragment_top_free_to_play_champions">FreeToPlay Champions</string>
+    <string name="fragment_top_free_to_play_date">毎週火曜日本時間AM2:00頃更新</string>
+
+    <string name="com_loading">読み込み中</string>
+
+    <string name="pager_top">トップ</string>
+
+    <string name="fragment_champion_list_title">チャンピオンリスト</string>
+
+    <string name="fragment_search_title">検索条件</string>
+    <string name="fragment_search_condition">条件</string>
+    <string name="fragment_search_tags">タイプから探す</string>
+    <string name="fragment_search_partype">エナジータイプから探す</string>
+    <string name="fragment_search_name">名前から探す</string>
+    <string name="fragment_search_button">検索</string>
 </resources>

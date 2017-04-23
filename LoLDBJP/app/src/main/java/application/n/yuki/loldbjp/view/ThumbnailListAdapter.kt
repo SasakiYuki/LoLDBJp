@@ -6,9 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import application.n.yuki.loldbjp.R
 import application.n.yuki.loldbjp.databinding.ListThumbnailBinding
-import application.n.yuki.loldbjp.view.BaseRecyclerAdapter.BaseRecyclerAdapter
-import application.n.yuki.loldbjp.view.BaseRecyclerAdapter.BindingViewHolder
-import application.n.yuki.loldbjp.view.BaseRecyclerAdapter.ViewHolder
+import application.n.yuki.loldbjp.view.base.recycler.BaseRecyclerAdapter
+import application.n.yuki.loldbjp.view.base.recycler.BindingViewHolder
+import application.n.yuki.loldbjp.view.base.recycler.ViewHolder
 import application.n.yuki.loldbjp.viewmodel.ThumbnailViewModel
 import java.util.*
 
@@ -34,6 +34,12 @@ open class ThumbnailListAdapter(val context:Context) : BaseRecyclerAdapter<ViewH
 
     fun addThubmnailEntity(entity:ThumbnailEntity) {
         arrayList.add(entity)
+        resetDataSource()
+        notifyDataSetChanged()
+    }
+
+    fun addThumbnailEntity(list:ArrayList<ThumbnailEntity>) {
+        arrayList.addAll(list)
         resetDataSource()
         notifyDataSetChanged()
     }

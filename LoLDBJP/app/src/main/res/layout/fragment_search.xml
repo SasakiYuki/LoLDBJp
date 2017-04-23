@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <application.n.yuki.loldbjp.view.SectionHeaderView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:sectionTitle="@string/fragment_search_condition"/>
+
+    <android.support.v7.widget.CardView style="@style/SimpleCardView">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/space_medium"
+            android:layout_marginBottom="@dimen/space_medium">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/fragment_search_tags"
+                android:textColor="@color/text_color_caption"/>
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/fragment_search_type_spinner"/>
+            <include
+                layout="@layout/divider_light"/>
+
+            <TextView
+                android:layout_marginTop="@dimen/space_large"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/fragment_search_partype"
+                android:textColor="@color/text_color_caption"/>
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/fragment_search_partype_spinner"/>
+            <include
+                layout="@layout/divider_light"/>
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+    <application.n.yuki.loldbjp.view.SectionHeaderView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:sectionTitle="@string/fragment_search_name"/>
+
+    <android.support.v7.widget.CardView style="@style/SimpleCardView">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/space_medium"
+            android:layout_marginBottom="@dimen/space_medium">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/fragment_search_name"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/fragment_search_edit"/>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+    <Button
+        android:id="@+id/fragment_search_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/fragment_search_button"
+        android:layout_marginTop="@dimen/space_medium"/>
+
+
+</LinearLayout>

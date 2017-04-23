@@ -1,28 +1,333 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical">
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_small"
-        android:text="@string/fragment_top_free_to_play_champions"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/fragment_top_free_to_play_date"
-        android:textColor="@color/text_color_caption"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/space_small"
+            android:layout_marginTop="@dimen/space_small"
+            android:text="@string/fragment_top_free_to_play_champions"/>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/free_to_play_recycler"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/button"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/space_small"
+            android:text="@string/fragment_top_free_to_play_date"
+            android:textColor="@color/text_color_caption"/>
 
-</LinearLayout>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/free_to_play_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <android.support.v7.widget.CardView
+            style="@style/SimpleCardView"
+            android:layout_marginTop="@dimen/space_small">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/space_medium"
+                android:layout_marginTop="@dimen/space_medium"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/space_small"
+                android:paddingRight="@dimen/space_small">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fragment_search_name"
+                    android:textColor="@color/text_color_caption"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@mipmap/icn_search"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="@string/fragment_top_edit_placeholder"
+                        android:textColor="@color/text_color_caption"
+                        />
+                </LinearLayout>
+
+                <include layout="@layout/divider_light"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <application.n.yuki.loldbjp.view.SectionHeaderView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:sectionTitle="@string/fragment_top_type_search"/>
+
+        <android.support.v7.widget.CardView
+            style="@style/SimpleCardView"
+            android:layout_marginTop="@dimen/space_small">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingBottom="@dimen/space_small"
+                    android:paddingLeft="@dimen/space_small"
+                    android:paddingRight="@dimen/space_small"
+                    android:paddingTop="@dimen/space_small"
+                    android:id="@+id/button"
+                    >
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@mipmap/icn_assassin"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/space_medium"
+                        android:text="@string/fragment_top_type_search_initial"
+                        android:textColor="@color/text_color_caption"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/space_small"
+                        android:text="@string/fragment_top_type_search_all"
+                        android:textSize="18sp"/>
+                </LinearLayout>
+
+                <include layout="@layout/divider_light"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingBottom="@dimen/space_small"
+                    android:paddingLeft="@dimen/space_small"
+                    android:paddingRight="@dimen/space_small"
+                    android:paddingTop="@dimen/space_small"
+                    android:id="@+id/fragment_top_mage"
+                    >
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@mipmap/icn_mage"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/space_medium"
+                        android:text="@string/fragment_top_type_search_initial"
+                        android:textColor="@color/text_color_caption"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/space_small"
+                        android:text="@string/fragment_top_type_search_mage"
+                        android:textSize="18sp"/>
+                </LinearLayout>
+
+                <include layout="@layout/divider_light"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingBottom="@dimen/space_small"
+                    android:paddingLeft="@dimen/space_small"
+                    android:paddingRight="@dimen/space_small"
+                    android:paddingTop="@dimen/space_small"
+                    android:id="@+id/fragment_top_assassin"
+                    >
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@mipmap/icn_assassin"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/space_medium"
+                        android:text="@string/fragment_top_type_search_initial"
+                        android:textColor="@color/text_color_caption"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/space_small"
+                        android:text="@string/fragment_top_type_search_assassin"
+                        android:textSize="18sp"/>
+                </LinearLayout>
+
+                <include layout="@layout/divider_light"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingBottom="@dimen/space_small"
+                    android:paddingLeft="@dimen/space_small"
+                    android:paddingRight="@dimen/space_small"
+                    android:paddingTop="@dimen/space_small"
+                    android:id="@+id/fragment_top_fighter"
+                    >
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@mipmap/icn_fighter"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/space_medium"
+                        android:text="@string/fragment_top_type_search_initial"
+                        android:textColor="@color/text_color_caption"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/space_small"
+                        android:text="@string/fragment_top_type_search_fighter"
+                        android:textSize="18sp"/>
+                </LinearLayout>
+
+                <include layout="@layout/divider_light"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingBottom="@dimen/space_small"
+                    android:paddingLeft="@dimen/space_small"
+                    android:paddingRight="@dimen/space_small"
+                    android:paddingTop="@dimen/space_small"
+                    android:id="@+id/fragment_top_marksman"
+                    >
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@mipmap/icn_marksman"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/space_medium"
+                        android:text="@string/fragment_top_type_search_initial"
+                        android:textColor="@color/text_color_caption"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/space_small"
+                        android:text="@string/fragment_top_type_search_marksman"
+                        android:textSize="18sp"/>
+                </LinearLayout>
+
+                <include layout="@layout/divider_light"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingBottom="@dimen/space_small"
+                    android:paddingLeft="@dimen/space_small"
+                    android:paddingRight="@dimen/space_small"
+                    android:paddingTop="@dimen/space_small"
+                    android:id="@+id/fragment_top_tank"
+                    >
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@mipmap/icn_tank"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/space_medium"
+                        android:text="@string/fragment_top_type_search_initial"
+                        android:textColor="@color/text_color_caption"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/space_small"
+                        android:text="@string/fragment_top_type_search_tank"
+                        android:textSize="18sp"/>
+                </LinearLayout>
+
+                <include layout="@layout/divider_light"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingBottom="@dimen/space_small"
+                    android:paddingLeft="@dimen/space_small"
+                    android:paddingRight="@dimen/space_small"
+                    android:paddingTop="@dimen/space_small"
+                    android:id="@+id/fragment_top_support"
+                    >
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@mipmap/icn_support"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/space_medium"
+                        android:text="@string/fragment_top_type_search_initial"
+                        android:textColor="@color/text_color_caption"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/space_small"
+                        android:text="@string/fragment_top_type_search_support"
+                        android:textSize="18sp"/>
+                </LinearLayout>
+
+                <include layout="@layout/divider_light"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+</ScrollView>

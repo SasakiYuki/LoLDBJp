@@ -38,6 +38,12 @@ open class ThumbnailListAdapter(val context:Context) : BaseRecyclerAdapter<ViewH
         notifyDataSetChanged()
     }
 
+    fun clearEntities(){
+        arrayList.clear()
+        resetDataSource()
+        notifyDataSetChanged()
+    }
+
     fun addThumbnailEntity(list:ArrayList<ThumbnailEntity>) {
         arrayList.addAll(list)
         resetDataSource()

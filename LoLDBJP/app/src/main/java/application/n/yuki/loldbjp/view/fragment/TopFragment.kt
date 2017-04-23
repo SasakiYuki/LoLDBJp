@@ -15,6 +15,7 @@ import application.n.yuki.loldbjp.contract.ChampionContract
 import application.n.yuki.loldbjp.contract.StaticChampionContract
 import application.n.yuki.loldbjp.rest.entity.StaticChampionEntity
 import application.n.yuki.loldbjp.rest.entity.StaticChampionsData
+import application.n.yuki.loldbjp.type.ChampionType
 import application.n.yuki.loldbjp.view.ThumbnailEntity
 import application.n.yuki.loldbjp.view.ThumbnailListAdapter
 import application.n.yuki.loldbjp.view.activity.SearchActivity
@@ -27,12 +28,14 @@ import java.util.*
  */
 
 class TopFragment : Fragment(), ChampionContract.ChampionView, StaticChampionContract.StaticChampionView {
-    override fun onSuccessChampions(staticChampionsData: StaticChampionsData) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    val freeChampionRecyclerView:RecyclerView by Views.bind(this,R.id.free_to_play_recycler)
-    val button:Button by Views.bind(this,R.id.button)
+    val freeChampionRecyclerView: RecyclerView by Views.bind(this, R.id.free_to_play_recycler)
+    val button: View by Views.bind(this, R.id.button)
+    val mageView:View by Views.bind(this,R.id.fragment_top_mage)
+    val assasinView:View by Views.bind(this,R.id.fragment_top_assassin)
+    val tankView:View by Views.bind(this,R.id.fragment_top_tank)
+    val fighterView:View by Views.bind(this,R.id.fragment_top_fighter)
+    val marksmanView:View by Views.bind(this,R.id.fragment_top_marksman)
+    val supportView:View by Views.bind(this,R.id.fragment_top_support)
     private lateinit var adapter: ThumbnailListAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -56,8 +59,44 @@ class TopFragment : Fragment(), ChampionContract.ChampionView, StaticChampionCon
 
         viewModel.getFreeChampions()
         button.setOnClickListener {
-            activity.startActivity(Intent(activity,SearchActivity::class.java))
+            activity.startActivity(Intent(activity, SearchActivity::class.java))
         }
+
+        val intent = Intent(activity,SearchActivity::class.java)
+
+        mageView.setOnClickListener {
+            intent.putExtra(SearchActivity.INTENT_SEARCH_TYPE,ChampionType.MAGE.string)
+            activity.startActivity(intent)
+        }
+
+        assasinView.setOnClickListener {
+            intent.putExtra(SearchActivity.INTENT_SEARCH_TYPE,ChampionType.ASSASSIN.string)
+            activity.startActivity(intent)
+        }
+
+        tankView.setOnClickListener {
+            intent.putExtra(SearchActivity.INTENT_SEARCH_TYPE,ChampionType.TANK.string)
+            activity.startActivity(intent)
+        }
+
+        fighterView.setOnClickListener {
+            intent.putExtra(SearchActivity.INTENT_SEARCH_TYPE,ChampionType.FIGHTER.string)
+            activity.startActivity(intent)
+        }
+
+        marksmanView.setOnClickListener {
+            intent.putExtra(SearchActivity.INTENT_SEARCH_TYPE,ChampionType.MARKSMAN.string)
+            activity.startActivity(intent)
+        }
+
+        supportView.setOnClickListener {
+            intent.putExtra(SearchActivity.INTENT_SEARCH_TYPE,ChampionType.SUPPORT.string)
+            activity.startActivity(intent)
+        }
+    }
+
+    override fun onSuccessChampions(staticChampionsData: StaticChampionsData) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun onSuccessChampion(staticChampionEntity: StaticChampionEntity) {

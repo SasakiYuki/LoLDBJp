@@ -18,7 +18,9 @@ class SearchActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setInitialFragment(ChampionListFragment.newInstance(context = this))
+
+        val queryType = intent.getStringExtra(INTENT_SEARCH_TYPE)
+        setInitialFragment(ChampionListFragment.newInstance(key = queryType,context = this))
     }
 
     fun setChampionList(list: ArrayList<StaticChampionEntity>) {
@@ -40,5 +42,9 @@ class SearchActivity : BaseActivity() {
                 .toList()
                 .toBlocking()
                 .first() as ArrayList<StaticChampionEntity>
+    }
+
+    companion object {
+        const val INTENT_SEARCH_TYPE = "intent_search_type"
     }
 }

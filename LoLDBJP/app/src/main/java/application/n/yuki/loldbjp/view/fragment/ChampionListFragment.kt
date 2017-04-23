@@ -66,6 +66,7 @@ class ChampionListFragment : BaseFragment(), StaticChampionContract.StaticChampi
     private fun setListFromActivity() {
         val list = getSearchActivity().getChampionList()
         if (isSearched()) {
+            setNavigationTitle(setNavigationTitleForSearchResult())
             val item = (Observable.from(list)
                     .filter { item -> if (isSearchedKey()) item.tags.contains(getSearchedKey()) else true }
                     .filter { item -> if (isSearchedPartype()) getSearchedPartype().equals(item.partype) else true }
@@ -102,6 +103,11 @@ class ChampionListFragment : BaseFragment(), StaticChampionContract.StaticChampi
 
         if (isOnSearchActivity()) {
             (activity as SearchActivity).setChampionList(arrayList)
+        }
+
+        if (isSearched()) {
+            adapter.clearEntities()
+            setListFromActivity()
         }
     }
 

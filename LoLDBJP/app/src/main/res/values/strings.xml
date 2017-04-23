@@ -8,6 +8,18 @@
 
     <string name="pager_top">トップ</string>
 
+    <string name="fragment_top_edit_placeholder">チャンピオン名、アイテム名</string>
+    <string name="fragment_top_type_search">チャンピオンタイプから探す</string>
+    <string name="fragment_top_type_search_initial">タイプ:</string>
+    <string name="fragment_top_type_search_all">すべて</string>
+    <string name="fragment_top_type_search_mage">メイジ</string>
+    <string name="fragment_top_type_search_tank">タンク</string>
+    <string name="fragment_top_type_search_fighter">ファイター</string>
+    <string name="fragment_top_type_search_marksman">マークスマン</string>
+    <string name="fragment_top_type_search_support">サポート</string>
+    <string name="fragment_top_type_search_assassin">アサシン</string>
+
+
     <string name="fragment_champion_list_title">チャンピオンリスト</string>
 
     <string name="fragment_search_title">検索条件</string>

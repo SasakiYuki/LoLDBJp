@@ -60,8 +60,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/fragment_search_name"/>
-            <EditText
+                android:text="@string/fragment_search_name"
+                android:textColor="@color/text_color_caption"/>
+             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/fragment_search_edit"/>

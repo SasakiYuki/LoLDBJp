@@ -13,22 +13,36 @@ import application.n.yuki.loldbjp.R
 import application.n.yuki.loldbjp.Views
 import application.n.yuki.loldbjp.contract.ChampionContract
 import application.n.yuki.loldbjp.contract.StaticChampionContract
+import application.n.yuki.loldbjp.marker.CoordinatorMarker
+import application.n.yuki.loldbjp.marker.FixedToolbarMarker
 import application.n.yuki.loldbjp.rest.entity.StaticChampionEntity
 import application.n.yuki.loldbjp.rest.entity.StaticChampionsData
 import application.n.yuki.loldbjp.type.ChampionType
-import application.n.yuki.loldbjp.view.ThumbnailEntity
-import application.n.yuki.loldbjp.view.ThumbnailListAdapter
+import application.n.yuki.loldbjp.view.activity.BansActivity
+import application.n.yuki.loldbjp.view.activity.PickRateActivity
+import application.n.yuki.loldbjp.view.adapter.ThumbnailEntity
+import application.n.yuki.loldbjp.view.adapter.ThumbnailListAdapter
 import application.n.yuki.loldbjp.view.activity.SearchActivity
-import application.n.yuki.loldbjp.viewmodel.ChampionViewModel
-import application.n.yuki.loldbjp.viewmodel.StaticChampionViewModel
+import application.n.yuki.loldbjp.view.activity.WinRateActivity
+import application.n.yuki.loldbjp.view.base.BaseActivity
+import application.n.yuki.loldbjp.view.base.BaseFragment
+import application.n.yuki.loldbjp.viewmodel.rest.ChampionViewModel
+import application.n.yuki.loldbjp.viewmodel.rest.StaticChampionViewModel
 import java.util.*
 
 /**
  * Created by yuki.n on 2017/04/18.
  */
 
-class TopFragment : Fragment(), ChampionContract.ChampionView, StaticChampionContract.StaticChampionView {
+class TopFragment : BaseFragment(), ChampionContract.ChampionView, StaticChampionContract.StaticChampionView ,FixedToolbarMarker,CoordinatorMarker{
+    override fun setContentLayout(): Int {
+        return R.layout.fragment_top
+    }
+
     val freeChampionRecyclerView: RecyclerView by Views.bind(this, R.id.free_to_play_recycler)
+    val winRateView:View by Views.bind(this,R.id.fragment_top_win)
+    val banRateView:View by Views.bind(this,R.id.fragment_top_ban)
+    val pickRateView:View by Views.bind(this,R.id.fragment_top_pick)
     val button: View by Views.bind(this, R.id.button)
     val mageView:View by Views.bind(this,R.id.fragment_top_mage)
     val assasinView:View by Views.bind(this,R.id.fragment_top_assassin)
@@ -37,10 +51,6 @@ class TopFragment : Fragment(), ChampionContract.ChampionView, StaticChampionCon
     val marksmanView:View by Views.bind(this,R.id.fragment_top_marksman)
     val supportView:View by Views.bind(this,R.id.fragment_top_support)
     private lateinit var adapter: ThumbnailListAdapter
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_top, container, false)
-    }
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -58,6 +68,19 @@ class TopFragment : Fragment(), ChampionContract.ChampionView, StaticChampionCon
         freeChampionRecyclerView.adapter = adapter
 
         viewModel.getFreeChampions()
+
+        winRateView.setOnClickListener {
+            activity.startActivity(Intent(activity,WinRateActivity::class.java))
+        }
+
+        banRateView.setOnClickListener {
+            activity.startActivity(Intent(activity,BansActivity::class.java))
+        }
+
+        pickRateView.setOnClickListener {
+            activity.startActivity(Intent(activity,PickRateActivity::class.java))
+        }
+
         button.setOnClickListener {
             activity.startActivity(Intent(activity, SearchActivity::class.java))
         }
@@ -116,6 +139,13 @@ class TopFragment : Fragment(), ChampionContract.ChampionView, StaticChampionCon
     }
 
     companion object {
-        fun newInstance() = TopFragment()
+        fun newInstance() :TopFragment {
+            val topFragment = TopFragment()
+            val bundle = Bundle()
+            bundle.putInt(ARG_CONTENTS_NAME_ID,R.string.app_name)
+            bundle.putString(ARG_CONTENTS_NAME,"はげくそTOp")
+            topFragment.arguments = bundle
+            return topFragment
+        }
     }
 }

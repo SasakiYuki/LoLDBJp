@@ -44,6 +44,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
 
+            <RelativeLayout
+                android:id="@+id/content_frame"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                />
+
+            <FrameLayout
+                android:id="@+id/content_overlay"
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:layout_height="match_parent"/>
             <include
                 layout="@layout/progress"
                 android:visibility="gone"/>

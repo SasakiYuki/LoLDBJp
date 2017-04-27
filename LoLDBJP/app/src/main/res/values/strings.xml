@@ -10,7 +10,12 @@
 
     <string name="fragment_top_edit_placeholder">チャンピオン名、アイテム名</string>
     <string name="fragment_top_type_search">チャンピオンタイプから探す</string>
+    <string name="fragment_top_number_search">数値から探す</string>
     <string name="fragment_top_type_search_initial">タイプ:</string>
+    <string name="fragment_top_number_search_initial">から探す</string>
+    <string name="fragment_top_number_win">勝率</string>
+    <string name="fragment_top_number_ban">BAN率</string>
+    <string name="fragment_top_number_pick">使用率</string>
     <string name="fragment_top_type_search_all">すべて</string>
     <string name="fragment_top_type_search_mage">メイジ</string>
     <string name="fragment_top_type_search_tank">タンク</string>

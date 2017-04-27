@@ -21,6 +21,14 @@
         </activity>
         <activity android:name=".view.activity.SearchActivity">
         </activity>
+        <activity android:name=".view.activity.BansActivity">
+        </activity>
+        <activity android:name=".view.activity.RoleRankingActivity">
+        </activity>
+        <activity android:name=".view.activity.WinRateActivity">
+        </activity>
+        <activity android:name=".view.activity.PickRateActivity">
+        </activity>
     </application>
 
 </manifest>

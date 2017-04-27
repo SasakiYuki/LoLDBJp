@@ -1,4 +1,4 @@
-package application.n.yuki.loldbjp;
+package application.n.yuki.loldbjp.utils;
 
 
 import application.n.yuki.loldbjp.view.base.BaseFragment;

@@ -1,4 +1,4 @@
-package application.n.yuki.loldbjp.viewmodel
+package application.n.yuki.loldbjp.viewmodel.rest
 
 import android.content.Context
 import application.n.yuki.loldbjp.LoLApplication
@@ -11,9 +11,9 @@ import rx.schedulers.Schedulers
 /**
  * Created by yuki.n on 2017/04/14.
  */
-class StaticChampionViewModel(context:Context) : StaticChampionContract{
-    private lateinit var view:StaticChampionContract.StaticChampionView
-    private val service:StaticChampionApiService = (context as LoLApplication).getStaticChampionApiService()
+class StaticChampionViewModel(context: Context) : StaticChampionContract {
+    private lateinit var view: StaticChampionContract.StaticChampionView
+    private val service: StaticChampionApiService = (context as LoLApplication).getStaticChampionApiService()
 
     override fun setView(view: StaticChampionContract.StaticChampionView) {
         this.view = view
@@ -41,6 +41,6 @@ class StaticChampionViewModel(context:Context) : StaticChampionContract{
     }
 
 
-    private fun buildQuery() = StaticChampionBuildQuery(StaticChampionBuildQuery.ChampDataBuilder(true)).toQueryMap()
-    private fun buildQueryImageInfoPartypeTags() = StaticChampionBuildQuery(StaticChampionBuildQuery.ChampDataBuilder(true,true,true,true)).toQueryMap()
+    private fun buildQuery() = StaticChampionBuildQuery(StaticChampionBuildQuery.Companion.ChampDataBuilder(true)).toQueryMap()
+    private fun buildQueryImageInfoPartypeTags() = StaticChampionBuildQuery(StaticChampionBuildQuery.Companion.ChampDataBuilder(true,true,true,true)).toQueryMap()
 }

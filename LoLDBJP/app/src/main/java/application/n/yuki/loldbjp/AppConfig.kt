@@ -5,4 +5,5 @@ package application.n.yuki.loldbjp
  */
 object AppConfig {
     fun getApiEndPoint() = String.format("https://%s",BuildConfig.API_HOST)
+    fun getAPiEndPointGG() = String.format("http://%s",BuildConfig.CHAMPION_GG_API_HOST)
 }

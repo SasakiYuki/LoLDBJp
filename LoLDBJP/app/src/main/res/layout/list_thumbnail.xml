@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="application.n.yuki.loldbjp.viewmodel.ThumbnailViewModel"/>
+            type="application.n.yuki.loldbjp.viewmodel.list.ThumbnailViewModel"/>
     </data>
 
     <LinearLayout

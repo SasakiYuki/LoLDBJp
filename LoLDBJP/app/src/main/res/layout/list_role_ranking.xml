@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="application.n.yuki.loldbjp.viewmodel.list.RoleRankingViewModel"/>
+    </data>
+
+    <LinearLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@color/attention"
+                android:textSize="26sp"
+                android:text="@{viewModel.ranking()}"
+                tools:text="1"/>
+
+            <application.n.yuki.loldbjp.view.SquareImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:padding="@dimen/space_small"
+                android:imageUrl="@{viewModel.imageUrl()}"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="4"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/space_small">
+
+                <TextView
+                    android:id="@+id/list_role_ranking_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="@{viewModel.name()}"
+                    tools:text="パンテオン"/>
+
+                <TextView
+                    android:id="@+id/list_role_ranking_key"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_color_caption"
+                    android:textSize="16sp"
+                    android:text="@{viewModel.key()}"
+                    tools:text="pantheon"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/list_role_ranking_main_percent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:textColor="@color/attention"
+                    android:textSize="20sp"
+                    android:text="@{viewModel.mainPercent()}"
+                    tools:text="55.3%"/>
+
+                <TextView
+                    android:id="@+id/list_role_ranking_sub_percent_placeholder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="@{viewModel.subPlaceholder()}"
+                    android:textColor="@color/text_color_caption"
+                    tools:text="ピック率"/>
+
+                <TextView
+                    android:id="@+id/list_role_ranking_sub_percent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="@{viewModel.subPercent()}"
+                    tools:text="6.44%"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

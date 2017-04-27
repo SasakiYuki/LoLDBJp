@@ -6,7 +6,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import application.n.yuki.loldbjp.FragmentReplacer
+import application.n.yuki.loldbjp.utils.FragmentReplacer
 
 
 abstract class BaseFragment : Fragment() {

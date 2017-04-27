@@ -1,4 +1,4 @@
-package application.n.yuki.loldbjp.view
+package application.n.yuki.loldbjp.view.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -9,13 +9,13 @@ import application.n.yuki.loldbjp.databinding.ListThumbnailBinding
 import application.n.yuki.loldbjp.view.base.recycler.BaseRecyclerAdapter
 import application.n.yuki.loldbjp.view.base.recycler.BindingViewHolder
 import application.n.yuki.loldbjp.view.base.recycler.ViewHolder
-import application.n.yuki.loldbjp.viewmodel.ThumbnailViewModel
+import application.n.yuki.loldbjp.viewmodel.list.ThumbnailViewModel
 import java.util.*
 
 /**
  * Created by yuki.n on 2017/04/16.
  */
-open class ThumbnailListAdapter(val context:Context) : BaseRecyclerAdapter<ViewHolder>() {
+open class ThumbnailListAdapter(val context: Context) : BaseRecyclerAdapter<ViewHolder>() {
     private val arrayList: ArrayList<ThumbnailEntity> = ArrayList()
 
     override val sectionCount: Int
@@ -32,7 +32,7 @@ open class ThumbnailListAdapter(val context:Context) : BaseRecyclerAdapter<ViewH
         return onCreateRowViewHolder(parent)
     }
 
-    fun addThubmnailEntity(entity:ThumbnailEntity) {
+    fun addThubmnailEntity(entity: ThumbnailEntity) {
         arrayList.add(entity)
         resetDataSource()
         notifyDataSetChanged()
@@ -44,7 +44,7 @@ open class ThumbnailListAdapter(val context:Context) : BaseRecyclerAdapter<ViewH
         notifyDataSetChanged()
     }
 
-    fun addThumbnailEntity(list:ArrayList<ThumbnailEntity>) {
+    fun addThumbnailEntity(list: ArrayList<ThumbnailEntity>) {
         arrayList.addAll(list)
         resetDataSource()
         notifyDataSetChanged()
@@ -58,11 +58,11 @@ open class ThumbnailListAdapter(val context:Context) : BaseRecyclerAdapter<ViewH
         binding.executePendingBindings()
     }
 
-    private fun getItemAt(position:IndexPath?) = arrayList[position!!.row]
+    private fun getItemAt(position: IndexPath?) = arrayList[position!!.row]
 
 
 
-    private fun onCreateRowViewHolder(parent:ViewGroup) :RowViewHolder {
+    private fun onCreateRowViewHolder(parent: ViewGroup) : RowViewHolder {
         val view = LayoutInflater.from(parent.context)
                 .inflate(R.layout.list_thumbnail,parent,false)
         return RowViewHolder(view)

@@ -15,12 +15,12 @@ import application.n.yuki.loldbjp.contract.StaticChampionContract
 import application.n.yuki.loldbjp.rest.entity.StaticChampionEntity
 import application.n.yuki.loldbjp.rest.entity.StaticChampionsData
 import application.n.yuki.loldbjp.type.ChampionType
-import application.n.yuki.loldbjp.view.ThumbnailEntity
-import application.n.yuki.loldbjp.view.ThumbnailListAdapter
+import application.n.yuki.loldbjp.view.adapter.ThumbnailEntity
+import application.n.yuki.loldbjp.view.adapter.ThumbnailListAdapter
 import application.n.yuki.loldbjp.view.activity.SearchActivity
 import application.n.yuki.loldbjp.view.base.BaseFragment
 import application.n.yuki.loldbjp.view.base.OverlayContentProvider
-import application.n.yuki.loldbjp.viewmodel.StaticChampionViewModel
+import application.n.yuki.loldbjp.viewmodel.rest.StaticChampionViewModel
 import rx.Observable
 import java.util.*
 

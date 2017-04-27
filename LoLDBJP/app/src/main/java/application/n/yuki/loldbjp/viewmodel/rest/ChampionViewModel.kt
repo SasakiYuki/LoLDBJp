@@ -1,4 +1,4 @@
-package application.n.yuki.loldbjp.viewmodel
+package application.n.yuki.loldbjp.viewmodel.rest
 
 import android.content.Context
 import application.n.yuki.loldbjp.BuildConfig
@@ -18,7 +18,7 @@ class ChampionViewModel(context: Context) : ChampionContract {
 
     private lateinit var view: ChampionContract.ChampionView
     private val apiKey = BuildConfig.API_KEY
-    private val service:ChampionApiService = (context as LoLApplication).getChampionApiService()
+    private val service: ChampionApiService = (context as LoLApplication).getChampionApiService()
 
     override fun setView(view: ChampionContract.ChampionView) {
         this.view = view

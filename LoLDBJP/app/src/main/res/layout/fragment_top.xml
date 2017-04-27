@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<android.support.v4.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -65,6 +65,123 @@
                         android:text="@string/fragment_top_edit_placeholder"
                         android:textColor="@color/text_color_caption"
                         />
+                </LinearLayout>
+
+                <include layout="@layout/divider_light"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+        <application.n.yuki.loldbjp.view.SectionHeaderView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:sectionTitle="@string/fragment_top_number_search"/>
+
+        <android.support.v7.widget.CardView
+            style="@style/SimpleCardView"
+            android:layout_marginTop="@dimen/space_small">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingBottom="@dimen/space_small"
+                    android:paddingLeft="@dimen/space_small"
+                    android:paddingRight="@dimen/space_small"
+                    android:paddingTop="@dimen/space_small"
+                    android:id="@+id/fragment_top_win"
+                    >
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@mipmap/icn_win"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/space_small"
+                        android:text="@string/fragment_top_number_win"
+                        android:textSize="18sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/space_small_half"
+                        android:text="@string/fragment_top_number_search_initial"
+                        android:textColor="@color/text_color_caption"/>
+                </LinearLayout>
+
+                <include layout="@layout/divider_light"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingBottom="@dimen/space_small"
+                    android:paddingLeft="@dimen/space_small"
+                    android:paddingRight="@dimen/space_small"
+                    android:paddingTop="@dimen/space_small"
+                    android:id="@+id/fragment_top_ban"
+                    >
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@mipmap/icn_ban"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/space_small"
+                        android:text="@string/fragment_top_number_ban"
+                        android:textSize="18sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/space_small_half"
+                        android:text="@string/fragment_top_number_search_initial"
+                        android:textColor="@color/text_color_caption"/>
+                </LinearLayout>
+
+                <include layout="@layout/divider_light"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingBottom="@dimen/space_small"
+                    android:paddingLeft="@dimen/space_small"
+                    android:paddingRight="@dimen/space_small"
+                    android:paddingTop="@dimen/space_small"
+                    android:id="@+id/fragment_top_pick"
+                    >
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@mipmap/icn_pick"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/space_small"
+                        android:text="@string/fragment_top_number_pick"
+                        android:textSize="18sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/space_small_half"
+                        android:text="@string/fragment_top_number_search_initial"
+                        android:textColor="@color/text_color_caption"/>
                 </LinearLayout>
 
                 <include layout="@layout/divider_light"/>
@@ -330,4 +447,4 @@
             </LinearLayout>
         </android.support.v7.widget.CardView>
     </LinearLayout>
-</ScrollView>
+</android.support.v4.widget.NestedScrollView>

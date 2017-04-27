@@ -1,17 +1,22 @@
 package application.n.yuki.loldbjp.view.base;
 
+import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.os.Looper;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
+import android.support.design.widget.AppBarLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewGroup;
 
-import application.n.yuki.loldbjp.FragmentReplaceHandler;
-import application.n.yuki.loldbjp.FragmentReplacer;
+import application.n.yuki.loldbjp.marker.CoordinatorMarker;
+import application.n.yuki.loldbjp.marker.FixedToolbarMarker;
+import application.n.yuki.loldbjp.utils.FragmentReplaceHandler;
+import application.n.yuki.loldbjp.utils.FragmentReplacer;
 import application.n.yuki.loldbjp.R;
 
 
@@ -22,6 +27,8 @@ public abstract class BaseActivity extends AppCompatActivity implements Fragment
     protected ViewGroup contentOverlay;
 
     private FragmentReplaceHandler handler;
+
+    private int actionBarPixelSize;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -34,10 +41,15 @@ public abstract class BaseActivity extends AppCompatActivity implements Fragment
         handler.setActivity(this);
 
         getSupportFragmentManager().addOnBackStackChangedListener(this);
+        // ActionBarのデフォルトの高さを取得
+        final TypedArray styledAttributes = getTheme().obtainStyledAttributes(
+                new int[]{android.R.attr.actionBarSize});
+        actionBarPixelSize = styledAttributes.getDimensionPixelSize(0, 0);
     }
 
     protected void setUpViews() {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         progressView = findViewById(R.id.progress_view);
         contentOverlay = (ViewGroup) findViewById(R.id.content_overlay);
     }
@@ -95,6 +107,20 @@ public abstract class BaseActivity extends AppCompatActivity implements Fragment
             setUpHeader(fragment);
             setUpOverlay(fragment);
         }
+
+        adjustContentBottomMargin();
+        AppBarLayout.LayoutParams params = (AppBarLayout.LayoutParams) toolbar.getLayoutParams();
+        if (fragment instanceof FixedToolbarMarker) {
+            params.setScrollFlags(0);
+        } else {
+            params.setScrollFlags(AppBarLayout.LayoutParams.SCROLL_FLAG_SCROLL | AppBarLayout.LayoutParams.SCROLL_FLAG_ENTER_ALWAYS);
+        }
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        adjustContentBottomMargin();
     }
 
     protected void setUpOverlay(BaseFragment fragment) {
@@ -104,6 +130,18 @@ public abstract class BaseActivity extends AppCompatActivity implements Fragment
             if (view != null) {
                 contentOverlay.addView(view);
                 showOverlay();
+            }
+        }
+    }
+
+    /**
+     * CoordinatorLayoutによって自動調整されないコンテンツ領域のマージンを調節する
+     */
+    public void adjustContentBottomMargin() {
+        final Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.content_frame);
+        if (fragment != null && fragment.getView() != null) {
+            if (!(fragment instanceof CoordinatorMarker)) {
+                ((ViewGroup.MarginLayoutParams) fragment.getView().getLayoutParams()).bottomMargin = actionBarPixelSize;
             }
         }
     }

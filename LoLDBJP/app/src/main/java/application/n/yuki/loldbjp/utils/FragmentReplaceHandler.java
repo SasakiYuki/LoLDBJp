@@ -1,4 +1,4 @@
-package application.n.yuki.loldbjp;
+package application.n.yuki.loldbjp.utils;
 
 import android.os.Looper;
 import android.os.Message;
@@ -10,7 +10,6 @@ import android.support.v4.app.FragmentTransaction;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
-import application.n.yuki.loldbjp.PauseHandler;
 import application.n.yuki.loldbjp.R;
 import application.n.yuki.loldbjp.view.base.BaseFragment;
 

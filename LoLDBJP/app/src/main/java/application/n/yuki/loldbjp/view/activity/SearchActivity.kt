@@ -1,6 +1,7 @@
 package application.n.yuki.loldbjp.view.activity
 
 import android.os.Bundle
+import android.text.TextUtils
 import application.n.yuki.loldbjp.R
 import application.n.yuki.loldbjp.rest.entity.StaticChampionEntity
 import application.n.yuki.loldbjp.type.ChampionType
@@ -19,7 +20,8 @@ class SearchActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val queryType = intent.getStringExtra(INTENT_SEARCH_TYPE)
+        val queryType =
+        if(TextUtils.isEmpty(intent.getStringExtra(INTENT_SEARCH_TYPE))) "" else intent.getStringExtra(INTENT_SEARCH_TYPE)
         setInitialFragment(ChampionListFragment.newInstance(key = queryType,context = this))
     }
 

@@ -29,6 +29,8 @@ android {
             buildConfigField 'String', 'CLIENT_SECRET', '"e517723b99b1f92694ea49e994cd653cb830a66b08853042e47787d15ace16aa"'
             buildConfigField 'String', 'REDIRECT_URL', '"afa://yukiyamada.jp"'
             buildConfigField 'String', 'API_KEY', '"7f8eaf37-de30-407b-b9cf-01c5db3b7dd5"'
+            buildConfigField 'String', 'CHAMPION_GG_API_KEY', '"4b3d44255e4cc122966b6908831d4337"'
+            buildConfigField 'String', 'CHAMPION_GG_API_HOST', '"api.champion.gg"'
         }
     }
     sourceSets {
